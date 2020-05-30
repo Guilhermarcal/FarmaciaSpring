@@ -9,7 +9,7 @@ import com.cotemig.springBoot.model.Cliente;
 @Repository("alunoRepository")
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	
-	@Query(value = "SELECT nome FROM CLIENTEE WHERE id = ?1", nativeQuery = true)
+	@Query(value = "SELECT nome FROM CLIENTE WHERE id = ?1", nativeQuery = true)
 	String getNomeCliente(Integer id);
 	
 }
