@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.cotemig.springBoot.model.Cliente;
 
-@Repository("alunoRepository")
+@Repository("clienteRepository")
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 	
 	@Query(value = "SELECT nome FROM CLIENTE WHERE id = ?1", nativeQuery = true)
