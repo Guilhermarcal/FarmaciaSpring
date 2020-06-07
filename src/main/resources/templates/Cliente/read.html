@@ -1,15 +1,26 @@
 <html>
  <head>
  <title>Ver todos</title>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
  </head>
- <body th:each="cliente : ${clientes}">
- <span th:text="${'ID: ' + cliente.id}"></span><br>
- <span th:text="${'Nome: ' + cliente.nome}"></span><br>
- <span th:text="${'CPF: ' + cliente.cpf}"></span><br>
- <span th:text="${'E-mail: ' + cliente.email}"></span><br>
- <span th:text="${'Telefone: ' + cliente.telefone}"></span><br>
- <br>
- <br>
+ <body><br>
+ 	<div class="container">
+ 		<table class="table table-bordered table-hover">
+	 		<thead>
+	 			<th>Nome</th>
+	 			<th>CPF</th>
+	 			<th>E-mail</th>
+	 			<th>Telefone</th>
+	 		</thead>
+	 		<tbody th:each="cliente : ${clientes}">
+	 			<td><span th:text="${cliente.nome}"></span></td>
+	 			<td><span th:text="${cliente.cpf}"></span></td>
+	 			<td><span th:text="${cliente.email}"></span></td>
+	 			<td><span th:text="${cliente.telefone}"></span></td>
+	 		</tbody>
+	 	</table>
+ 	</div>
  </body>
 </html>

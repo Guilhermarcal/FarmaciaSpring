@@ -4,21 +4,21 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  </head>
  <body>
- <form action="delete" method="POST" modelAttribute="cliente">
+ <form action="delete" method="POST" modelAttribute="produto">
  ID:<br>
-   <input type="text" name="id" th:value="${cliente.id}" readOnly="true"><br>
+   <input type="text" name="id" th:value="${produto.id}" readOnly="true"><br>
    <br>
-   Nome Cliente:<br>
-   <input type="text" name="nome" th:value="${cliente.nome}" readOnly="true"><br>
+   Nome:<br>
+   <input type="text" name="nome" th:value="${produto.nome}" readOnly="true"><br>
    <br>
-   CPF Cliente:<br>
-   <input type="text" name="cpf" th:value="${cliente.cpf}" readOnly="true"><br>
+   Categoria:<br>
+   <input type="text" name="categoria" th:value="${produto.categoria}" readOnly="true"><br>
    <br>
-   E-mail Cliente:<br>
-   <input type="text" name="email" th:value="${cliente.email}" readOnly="true"><br>
+   Preço:<br>
+   <input type="number" name="preco" th:value="${produto.preco}" readOnly="true"><br>
    <br>
-   Telefone Cliente:<br>
-   <input type="text" name="telefone" th:value="${cliente.telefone}" readOnly="true"><br>
+   Estoque:<br>
+   <input type="number" name="quantidade" th:value="${produto.quantidade}" readOnly="true"><br>
    
    <input type="submit" value="Deletar">
  </form>

@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cotemig.springBoot.model.Cliente;
 import com.cotemig.springBoot.service.ClienteService;
 
-
 @Controller
 public class ClienteController {
 	

@@ -1,14 +1,11 @@
 package com.cotemig.springBoot.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Venda {
@@ -19,6 +16,8 @@ public class Venda {
 	
 	private Double valor_total;
 	
+	private Integer quantidade;
+	
 	@ManyToOne
     @JoinColumn(name="funcionario_id", nullable=false)
     private Funcionario funcionarios;
@@ -27,8 +26,9 @@ public class Venda {
     @JoinColumn(name="cliente_id", nullable=false)
     private Cliente clientes;
 	
-	@OneToMany(mappedBy="venda")
-    private Set<Itemvenda> itens;
+	@ManyToOne
+    @JoinColumn(name="produto_id", nullable=false)
+    private Produto produtos;
 
 	public Integer getId() {
 		return id;
@@ -44,6 +44,14 @@ public class Venda {
 
 	public void setValor_total(Double valor_total) {
 		this.valor_total = valor_total;
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	public Funcionario getFuncionarios() {
@@ -62,12 +70,12 @@ public class Venda {
 		this.clientes = clientes;
 	}
 
-	public Set<Itemvenda> getItens() {
-		return itens;
+	public Produto getProdutos() {
+		return produtos;
 	}
 
-	public void setItens(Set<Itemvenda> itens) {
-		this.itens = itens;
+	public void setProdutos(Produto produtos) {
+		this.produtos = produtos;
 	}
 	
 }

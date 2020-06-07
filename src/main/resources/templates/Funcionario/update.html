@@ -4,22 +4,19 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  </head>
  <body>
- <form action="update" method="POST" modelAttribute="cliente">
+ <form action="update" method="POST" modelAttribute="funcionario">
  
  ID:<br>
-   <input type="text" name="id" th:value="${cliente.id}" readOnly="true"><br>
+   <input type="text" name="id" th:value="${funcionario.id}" readOnly="true"><br>
    <br>
-   Nome Cliente:<br>
-   <input type="text" name="nome" th:value="${cliente.nome}"><br>
+   Nome:<br>
+   <input type="text" name="nome" th:value="${funcionario.nome}"><br>
    <br>
-   CPF Cliente:<br>
-   <input type="text" name="cpf" th:value="${cliente.cpf}"><br>
+   Matrícula:<br>
+   <input type="text" name="matricula" th:value="${funcionario.matricula}"><br>
    <br>
-   E-mail Cliente:<br>
-   <input type="text" name="email" th:value="${cliente.email}"><br>
-   <br>
-   Telefone Cliente:<br>
-   <input type="text" name="telefone" th:value="${cliente.telefone}"><br>
+   Cargo:<br>
+   <input type="text" name="cargo" th:value="${funcionario.cargo}"><br>
    
    <input type="submit" value="Atualizar">
  </form>

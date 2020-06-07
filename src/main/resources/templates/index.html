@@ -1,10 +1,72 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>TESTE</title>
-	<meta charset="utf-8">
+<title>Sistema Academico</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
-<body>
-	<h1>Bem vindo.</h1>
+<body><br>
+<div class="container">
+ 	<a href="cliente/insert">Inserir novo cliente</a> | <a href="cliente/read">Ver todos os clientes</a>
+ 	<br>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<th>Nome</th>
+			<th>CPF</th>
+			<th>E-mail</th>
+			<th>Telefone</th>
+			<th>Excluir?</th>
+	     	<th>Alterar?</th>
+		</thead>
+		<tbody th:each="cliente : ${clientes}">
+			<td><span th:text="${cliente.nome}"></span></td>
+			<td><span th:text="${cliente.cpf}"></span></td>
+			<td><span th:text="${cliente.email}"></span></td>
+			<td><span th:text="${cliente.telefone}"></span></td>
+			<td><a th:href="@{/cliente/delete(id=${cliente.id})}">Deletar</a></td>
+	     	<td><a th:href="@{/cliente/update(id=${cliente.id})}">Alterar</a></td>
+		</tbody>
+	</table>
+	<br><br>
+	<a href="funcionario/insert">Inserir novo funcionário</a> | <a href="funcionario/read">Ver todos os funcionarios</a>
+ 	<br>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<th>Nome</th>
+			<th>Matrícula</th>
+			<th>Cargo</th>
+			<th>Excluir?</th>
+	     	<th>Alterar?</th>
+		</thead>
+		<tbody th:each="funcionario : ${funcionarios}">
+			<td><span th:text="${funcionario.nome}"></span></td>
+			<td><span th:text="${funcionario.matricula}"></span></td>
+			<td><span th:text="${funcionario.cargo}"></span></td>
+			<td><a th:href="@{/funcionario/delete(id=${funcionario.id})}">Deletar</a></td>
+	     	<td><a th:href="@{/funcionario/update(id=${funcionario.id})}">Alterar</a></td>
+		</tbody>
+	</table>
+	<br><br>
+	<a href="produto/insert">Inserir novo produto</a> | <a href="produto/read">Ver todos os produtos</a>
+ 	<br>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<th>Nome</th>
+			<th>Categoria</th>
+			<th>Preço</th>
+			<th>Estoque</th>
+			<th>Excluir?</th>
+	     	<th>Alterar?</th>
+		</thead>
+		<tbody th:each="produto : ${produtos}">
+			<td><span th:text="${produto.nome}"></span></td>
+			<td><span th:text="${produto.categoria}"></span></td>
+			<td><span th:text="${produto.preco}"></span></td>
+			<td><span th:text="${produto.quantidade}"></span></td>
+			<td><a th:href="@{/produto/delete(id=${produto.id})}">Deletar</a></td>
+	     	<td><a th:href="@{/produto/update(id=${produto.id})}">Alterar</a></td>
+		</tbody>
+	</table>
+</div>
 </body>
 </html>

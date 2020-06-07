@@ -4,19 +4,19 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  </head>
  <body>
- <form action="insert" method="POST" modelAttribute="cliente">
+ <form action="insert" method="POST" modelAttribute="produto">
  
-   Nome Cliente:<br>
+   Nome:<br>
    <input type="text" name="nome"><br>
    <br>
-   CPF Cliente:<br>
-   <input type="text" name="cpf"><br>
+   Categoria:<br>
+   <input type="text" name="categoria"><br>
    <br>
-   E-mail Cliente:<br>
-   <input type="text" name="email"><br>
+   Preço:<br>
+   <input type="number" name="preco" step="0.01"><br>
    <br>
-   Telefone Cliente:<br>
-   <input type="text" name="telefone"><br>
+   Estoque:<br>
+   <input type="number" name="quantidade"><br>
    
    <input type="submit" value="Inserir">
  </form>

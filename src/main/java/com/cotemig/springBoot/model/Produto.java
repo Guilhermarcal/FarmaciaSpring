@@ -26,7 +26,7 @@ public class Produto {
 	
 	@OneToMany
     @JoinColumn(name = "produto_id") // Esta coluna está na tabela "venda".
-	private Set<Itemvenda> itens;
+	private Set<Venda> vendas;
 
 	public Integer getId() {
 		return id;
@@ -68,12 +68,12 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public Set<Itemvenda> getItens() {
-		return itens;
+	public Set<Venda> getVendas() {
+		return vendas;
 	}
 
-	public void setItens(Set<Itemvenda> itens) {
-		this.itens = itens;
+	public void setVendas(Set<Venda> vendas) {
+		this.vendas = vendas;
 	}
 	
 }

@@ -4,22 +4,22 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  </head>
  <body>
- <form action="update" method="POST" modelAttribute="cliente">
+ <form action="update" method="POST" modelAttribute="produto">
  
  ID:<br>
-   <input type="text" name="id" th:value="${cliente.id}" readOnly="true"><br>
+   <input type="text" name="id" th:value="${produto.id}" readOnly="true"><br>
    <br>
-   Nome Cliente:<br>
-   <input type="text" name="nome" th:value="${cliente.nome}"><br>
+   Nome:<br>
+   <input type="text" name="nome" th:value="${produto.nome}"><br>
    <br>
-   CPF Cliente:<br>
-   <input type="text" name="cpf" th:value="${cliente.cpf}"><br>
+   Categoria:<br>
+   <input type="text" name="categoria" th:value="${produto.categoria}"><br>
    <br>
-   E-mail Cliente:<br>
-   <input type="text" name="email" th:value="${cliente.email}"><br>
+   Preço:<br>
+   <input type="number" name="preco" th:value="${produto.preco}" step="0.01"><br>
    <br>
-   Telefone Cliente:<br>
-   <input type="text" name="telefone" th:value="${cliente.telefone}"><br>
+   Estoque:<br>
+   <input type="number" name="quantidade" th:value="${produto.quantidade}"><br>
    
    <input type="submit" value="Atualizar">
  </form>
