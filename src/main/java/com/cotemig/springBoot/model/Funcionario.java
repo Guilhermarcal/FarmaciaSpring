@@ -1,11 +1,13 @@
 package com.cotemig.springBoot.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Funcionario {
@@ -20,9 +22,9 @@ public class Funcionario {
 
 	private String cargo;
 	
-	@ManyToOne
-    @JoinColumn(name="funcionario_id", nullable=false)
-    private Venda venda;
+	@OneToMany
+    @JoinColumn(name = "funcionario_id") // Esta coluna está na tabela "venda".
+	private Set<Venda> vendas;
 
 	public Integer getId() {
 		return id;
@@ -32,11 +34,11 @@ public class Funcionario {
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setName(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
@@ -56,14 +58,12 @@ public class Funcionario {
 		this.cargo = cargo;
 	}
 
-	public Venda getVenda() {
-		return venda;
+	public Set<Venda> getVendas() {
+		return vendas;
 	}
 
-	public void setVenda(Venda venda) {
-		this.venda = venda;
+	public void setVendas(Set<Venda> vendas) {
+		this.vendas = vendas;
 	}
-	
-	
 	
 }

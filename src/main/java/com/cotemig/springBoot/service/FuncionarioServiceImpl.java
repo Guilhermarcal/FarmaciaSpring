@@ -38,7 +38,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 	@Override
 	public void updateFuncionarioById(Integer id, Funcionario funcionario) {
 		Optional<Funcionario> getFuncionario = getFuncionarioById(id);
-		getFuncionario.get().setName(funcionario.getName());
+		getFuncionario.get().setNome(funcionario.getNome());
 		getFuncionario.get().setMatricula(funcionario.getMatricula());
 		getFuncionario.get().setCargo(funcionario.getCargo());
 		

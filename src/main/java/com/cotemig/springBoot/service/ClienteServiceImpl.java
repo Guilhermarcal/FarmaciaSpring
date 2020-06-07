@@ -38,7 +38,7 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public void updateClienteById(Integer id, Cliente cliente) {
 		Optional<Cliente> getCliente = getClienteById(id);
-		getCliente.get().setName(cliente.getName());
+		getCliente.get().setNome(cliente.getNome());
 		getCliente.get().setCpf(cliente.getCpf());
 		getCliente.get().setEmail(cliente.getEmail());
 		getCliente.get().setTelefone(cliente.getTelefone());

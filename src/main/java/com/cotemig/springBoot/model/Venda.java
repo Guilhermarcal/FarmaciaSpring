@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,11 +19,13 @@ public class Venda {
 	
 	private Double valor_total;
 	
-	@OneToMany(mappedBy="venda")
-    private Set<Funcionario> funcionarios;
+	@ManyToOne
+    @JoinColumn(name="funcionario_id", nullable=false)
+    private Funcionario funcionarios;
 	
-	@OneToMany(mappedBy="venda")
-    private Set<Cliente> clientes;
+	@ManyToOne
+    @JoinColumn(name="cliente_id", nullable=false)
+    private Cliente clientes;
 	
 	@OneToMany(mappedBy="venda")
     private Set<Itemvenda> itens;
@@ -42,19 +46,19 @@ public class Venda {
 		this.valor_total = valor_total;
 	}
 
-	public Set<Funcionario> getFuncionarios() {
+	public Funcionario getFuncionarios() {
 		return funcionarios;
 	}
 
-	public void setFuncionarios(Set<Funcionario> funcionarios) {
+	public void setFuncionarios(Funcionario funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 
-	public Set<Cliente> getClientes() {
+	public Cliente getClientes() {
 		return clientes;
 	}
 
-	public void setClientes(Set<Cliente> clientes) {
+	public void setClientes(Cliente clientes) {
 		this.clientes = clientes;
 	}
 
