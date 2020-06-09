@@ -4,21 +4,30 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  </head>
  <body>
- <form action="insert" method="POST" modelAttribute="cliente">
+ <form action="insert" method="POST" modelAttribute="venda">
  
-   Nome Cliente:<br>
-   <input type="text" name="nome"><br>
-   <br>
-   CPF Cliente:<br>
-   <input type="text" name="cpf"><br>
-   <br>
-   E-mail Cliente:<br>
-   <input type="text" name="email"><br>
-   <br>
-   Telefone Cliente:<br>
-   <input type="text" name="telefone"><br>
-   
-   <input type="submit" value="Inserir">
+  Funcionario:<br>
+  <select name="venda.funcionarios">
+      <option th:each="f : ${funcionarios}" th:value="${f.id}" th:text="${f.nome}"></option>
+  </select>
+  <br>
+  Cliente:<br>
+  <select name="venda.clientes">
+      <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}"></option>
+  </select>
+  <br>
+  Produto:<br>
+  <select name="venda.produtos">
+      <option th:each="p : ${produtos}" th:value="${p.id}" th:text="${p.nome}"></option>
+  </select>
+  <br>
+  Quantidade:<br>
+  <input type="number" name="quantidade">
+  <br>
+  Data Venda:<br>
+  <input type="date" name="data_venda"><br>
+ 
+ <input type="submit" value="Inserir">
  </form>
  </body>
 </html>

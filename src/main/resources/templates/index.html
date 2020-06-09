@@ -67,6 +67,29 @@
 	     	<td><a th:href="@{/produto/update(id=${produto.id})}">Alterar</a></td>
 		</tbody>
 	</table>
+	<br><br>
+	<a href="venda/insert">Inserir nova venda</a> | <a href="venda/read">Ver todas as vendas</a>
+ 	<br>
+	<table class="table table-bordered table-hover">
+		<thead>
+			<th>Funcionario</th>
+			<th>Cliente</th>
+			<th>Produto</th>
+			<th>Quantidade</th>
+			<th>Data Venda</th>
+			<th>Excluir?</th>
+	     	<th>Alterar?</th>
+		</thead>
+		<tbody th:each="venda : ${vendas}">
+			<td><span th:text="${venda.funcionarios.nome}"></span></td>
+			<td><span th:text="${venda.clientes.nome}"></span></td>
+			<td><span th:text="${venda.produtos.nome}"></span></td>
+			<td><span th:text="${venda.quantidade}"></span></td>
+			<td><span th:text="${venda.data_venda}"></span></td>
+			<td><a th:href="@{/venda/delete(id=${venda.id})}">Deletar</a></td>
+	     	<td><a th:href="@{/venda/update(id=${venda.id})}">Alterar</a></td>
+		</tbody>
+	</table>
 </div>
 </body>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cotemig.springBoot.service.ClienteService;
 import com.cotemig.springBoot.service.FuncionarioService;
 import com.cotemig.springBoot.service.ProdutoService;
+import com.cotemig.springBoot.service.VendaService;
 
 
 @Controller
@@ -23,12 +24,16 @@ public class SpringController {
 	@Autowired
 	private ProdutoService produtoService;
 	
+	@Autowired
+	private VendaService vendaService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView("index");
 		mav.addObject("clientes", clienteService.getAllCliente());
 		mav.addObject("funcionarios", funcionarioService.getAllFuncionario());
 		mav.addObject("produtos", produtoService.getAllProduto());
+		mav.addObject("vendas", vendaService.getAllVenda());
 		return mav;
 	}
 	

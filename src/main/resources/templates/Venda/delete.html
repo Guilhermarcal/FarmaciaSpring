@@ -4,22 +4,25 @@
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
  </head>
  <body>
- <form action="delete" method="POST" modelAttribute="cliente">
+ <form action="delete" method="POST" modelAttribute="venda">
  ID:<br>
-   <input type="text" name="id" th:value="${cliente.id}" readOnly="true"><br>
+   <input type="text" name="id" th:value="${venda.id}" readOnly="true"><br>
    <br>
-   Nome Cliente:<br>
-   <input type="text" name="nome" th:value="${cliente.nome}" readOnly="true"><br>
+   Funcionario:<br>
+   <input type="text" name="funcionario_id" th:value="${venda.funcionario_id}" readOnly="true"><br>
    <br>
-   CPF Cliente:<br>
-   <input type="text" name="cpf" th:value="${cliente.cpf}" readOnly="true"><br>
+   Cliente:<br>
+   <input type="number" name="cliente_id" th:value="${venda.cliente_id}" readOnly="true"><br>
    <br>
-   E-mail Cliente:<br>
-   <input type="text" name="email" th:value="${cliente.email}" readOnly="true"><br>
+   Produto:<br>
+   <input type="number" name="produto_id" th:value="${venda.produto_id}" readOnly="true"><br>
    <br>
-   Telefone Cliente:<br>
-   <input type="text" name="telefone" th:value="${cliente.telefone}" readOnly="true"><br>
-   
+   Quantidade:<br>
+   <input type="number" name="quantidade" th:value="${venda.quantidade}" readOnly="true"><br>
+   <br>
+   Data Venda:<br>
+   <input type="number" name="data_venda" th:value="${venda.data_venda}" readOnly="true"><br>
+      
    <input type="submit" value="Deletar">
  </form>
  </body>
