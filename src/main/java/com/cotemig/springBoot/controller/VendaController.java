@@ -87,7 +87,6 @@ public class VendaController {
 	public ModelAndView update(Integer id) {
 		
 		ModelAndView mav = new ModelAndView("venda/update", "venda", vendaService.getVendaById(id).get());
-		mav.addObject("venda", new Venda());
 		mav.addObject("clientes", clienteService.getAllCliente());
 		mav.addObject("funcionarios", funcionarioService.getAllFuncionario());
 		mav.addObject("produtos", produtoService.getAllProduto());

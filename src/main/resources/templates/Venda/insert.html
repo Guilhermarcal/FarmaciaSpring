@@ -7,17 +7,17 @@
  <form action="insert" method="POST" modelAttribute="venda">
  
   Funcionario:<br>
-  <select name="venda.funcionarios">
+  <select th:field="*{venda.funcionarios}">
       <option th:each="f : ${funcionarios}" th:value="${f.id}" th:text="${f.nome}"></option>
   </select>
   <br>
   Cliente:<br>
-  <select name="venda.clientes">
+  <select th:field="*{venda.clientes}">
       <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}"></option>
   </select>
   <br>
   Produto:<br>
-  <select name="venda.produtos">
+  <select th:field="*{venda.produtos}">
       <option th:each="p : ${produtos}" th:value="${p.id}" th:text="${p.nome}"></option>
   </select>
   <br>
