@@ -45,21 +45,37 @@
     </ul>
   </div>
 </nav>
+<div class="container"><br>
  <form action="insert" method="POST" modelAttribute="produto">
- 
-   Nome:<br>
-   <input type="text" name="nome"><br>
-   <br>
-   Categoria:<br>
-   <input type="text" name="categoria"><br>
-   <br>
-   Preço:<br>
-   <input type="number" name="preco" step="0.01"><br>
-   <br>
-   Estoque:<br>
-   <input type="number" name="quantidade"><br>
-   
-   <input type="submit" value="Inserir">
+	 <div class="row">
+	      <div class="col-md-3">
+	        <label for="nome">Nome: </label>
+	        <input class="form-control" type="text" name="nome" id="nome" placeholder="Digite o nome" autocomplete="off">   
+	      </div>
+	      <div class="col-md-3">
+	        <label for="categoria">Categoria: </label>
+	        <input class="form-control" type="text" name="categoria" id="categoria" placeholder="Digite a categoria" autocomplete="off">   
+	      </div>
+	      <div class="col-md-3">
+	        <label for="preco">Preco: </label>
+	        <input class="form-control" type="text" name="preco" id="preco" placeholder="Digite o preço" autocomplete="off">   
+	      </div>
+	      <div class="col-md-3">
+	        <label for="quantidade">Quantidade: </label>
+	        <input class="form-control" type="text" name="quantidade" id="quantidade" placeholder="Digite a quantidade" autocomplete="off">   
+	      </div>
+	 </div>
+	 <br>
+	<div class="row">
+      <div class="col-md-9">
+        
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-success" value="Inserir">
+        <a href="read.html"><input class="btn btn-danger" type="button" value="Cancelar"></a>  
+      </div>
+    </div>
  </form>
+</div>
  </body>
 </html>

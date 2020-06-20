@@ -45,21 +45,37 @@
     </ul>
   </div>
 </nav>
+<div class="container"><br>
  <form action="insert" method="POST" modelAttribute="cliente">
- 
-   Nome:<br>
-   <input type="text" name="nome"><br>
-   <br>
-   CPF:<br>
-   <input type="text" name="cpf"><br>
-   <br>
-   E-mail:<br>
-   <input type="text" name="email"><br>
-   <br>
-   Telefone:<br>
-   <input type="text" name="telefone"><br>
-   
-   <input type="submit" value="Inserir">
- </form>
+    <div class="row">
+      <div class="col-md-3">
+        <label for="nome">Nome: </label>
+        <input class="form-control" type="text" name="nome" id="nome" placeholder="Digite o nome" autocomplete="off">   
+      </div>
+      <div class="col-md-3">
+        <label for="cpf">CPF: </label>
+        <input class="form-control" type="text" name="cpf" id="cpf" placeholder="Digite o CPF" autocomplete="off">   
+      </div>
+      <div class="col-md-3">
+        <label for="email">E-mail: </label>
+        <input class="form-control" type="email" name="email" id="email" placeholder="Digite o e-mail" autocomplete="off">   
+      </div>
+      <div class="col-md-3">
+        <label for="telefone">Telefone: </label>
+        <input class="form-control" type="tel" name="telefone" id="telefone" placeholder="Digite o telefone" autocomplete="off">   
+      </div>
+    </div>
+	<br>
+	<div class="row">
+	  <div class="col-md-9">
+        
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-success" value="Inserir">
+        <a href="read.html"><input class="btn btn-danger" type="button" value="Cancelar"></a>  
+      </div>
+    </div>
+  </form>
+</div>
  </body>
 </html>
