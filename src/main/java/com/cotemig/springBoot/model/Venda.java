@@ -17,7 +17,7 @@ public class Venda {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-		
+	
 	private Integer quantidade;
 	
 	private Date data_venda;
