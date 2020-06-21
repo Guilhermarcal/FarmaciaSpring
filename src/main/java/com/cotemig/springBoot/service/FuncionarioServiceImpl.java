@@ -59,5 +59,5 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 	public String getNomeFuncionario(Integer id) {
 		return funcionarioRepository.getNomeFuncionario(id);
 	}
-	
+		
 }

@@ -1,26 +1,42 @@
-<html>
- <head>
-     <title>Deletar</title>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- </head>
- <body>
- <form action="delete" method="POST" modelAttribute="cliente">
- ID:<br>
-   <input type="text" name="id" th:value="${cliente.id}" readOnly="true"><br>
-   <br>
-   Nome:<br>
-   <input type="text" name="nome" th:value="${cliente.nome}" readOnly="true"><br>
-   <br>
-   CPF:<br>
-   <input type="text" name="cpf" th:value="${cliente.cpf}" readOnly="true"><br>
-   <br>
-   E-mail:<br>
-   <input type="text" name="email" th:value="${cliente.email}" readOnly="true"><br>
-   <br>
-   Telefone:<br>
-   <input type="text" name="telefone" th:value="${cliente.telefone}" readOnly="true"><br>
-   
-   <input type="submit" value="Deletar">
- </form>
- </body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base/layout">
+<head>
+    <title>Deletar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<section layout:fragment="content">
+<div class="container"><br>
+  <form action="delete" method="POST" modelAttribute="cliente">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="nome">Nome: </label>
+        <input class="form-control" type="text" name="nome" th:value="${cliente.nome}" readOnly="true">   
+      </div>
+      <div class="col-md-3">
+        <label for="cpf">CPF: </label>
+        <input class="form-control" type="text" name="cpf" th:value="${cliente.cpf}" readOnly="true">   
+      </div>
+      <div class="col-md-3">
+        <label for="email">E-mail: </label>
+        <input class="form-control" type="email" name="email" th:value="${cliente.email}" readOnly="true">   
+      </div>
+      <div class="col-md-3">
+        <label for="telefone">Telefone: </label>
+        <input class="form-control" type="tel" name="telefone" th:value="${cliente.telefone}" readOnly="true">   
+      </div>
+      <input type="hidden" name="id" th:value="${cliente.id}">   
+    </div><br>
+    <div class="row">
+      <div class="col-md-9">
+          
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-success" value="Apagar">
+        <a href="read"><input class="btn btn-danger" type="button" value="Cancelar"></a>  
+      </div>
+    </div>
+  </form>
+</div>
+</section>
+</body>
 </html>

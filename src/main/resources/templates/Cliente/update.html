@@ -1,27 +1,40 @@
-<html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base/layout">
  <head>
-     <title>Atualizar</title>
-     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
- </head>
- <body>
- <form action="update" method="POST" modelAttribute="cliente">
- 
- ID:<br>
-   <input type="text" name="id" th:value="${cliente.id}" readOnly="true"><br>
-   <br>
-   Nome:<br>
-   <input type="text" name="nome" th:value="${cliente.nome}"><br>
-   <br>
-   CPF:<br>
-   <input type="text" name="cpf" th:value="${cliente.cpf}"><br>
-   <br>
-   E-mail:<br>
-   <input type="text" name="email" th:value="${cliente.email}"><br>
-   <br>
-   Telefone:<br>
-   <input type="text" name="telefone" th:value="${cliente.telefone}"><br>
-   
-   <input type="submit" value="Atualizar">
- </form>
- </body>
+    <title>Atualizar</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container"><br>
+  <form action="update" method="POST" modelAttribute="cliente">
+  <div class="row">
+    <div class="col-md-3">
+      <label>Nome:</label>
+      <input type="text" class="form-control" name="nome" th:value="${cliente.nome}"><br>  
+    </div>
+    <div class="col-md-3">
+      <label>CPF:</label>
+      <input type="text" class="form-control" name="cpf" th:value="${cliente.cpf}"><br>  
+    </div>
+    <div class="col-md-3">
+      <label>E-mail:</label>
+      <input type="email" class="form-control" name="email" th:value="${cliente.email}"><br>  
+    </div>
+    <div class="col-md-3">
+      <label>Telefone:</label>
+      <input type="text" class="form-control" name="telefone" th:value="${cliente.telefone}"><br>  
+    </div>
+    <input type="hidden" class="form-control" name="id" th:value="${cliente.id}"><br>  
+  </div><br>
+  <div class="row">
+    <div class="col-md-9">
+        
+    </div>
+    <div class="col-md-3">
+      <input type="submit" class="btn btn-success" value="Atualizar">
+      <a href="read"><input class="btn btn-danger" type="button" value="Cancelar"></a>  
+    </div>
+  </div>
+  </form>
+</div>
+</body>
 </html>

@@ -19,7 +19,6 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteService clienteService;	
-	
 
 	// INSERT GET
 	@RequestMapping(value = "cliente/insert", method = RequestMethod.GET)

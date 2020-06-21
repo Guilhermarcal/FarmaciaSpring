@@ -45,28 +45,32 @@
   </div>
 </nav>
 <div class="container"><br>
- <form action="delete" method="POST" modelAttribute="funcionario">
+<form action="delete" method="POST" modelAttribute="funcionario">
   <div class="row">
-	<div class="col-md-3">
-	   <label for="id">ID: </label>
-	   <input class="form-control" type="text" name="id" th:value="${funcionario.id}" readOnly="true">
-	</div>
-	<div class="col-md-3">
-	   <label for="nome">Nome: </label>
-	   <input class="form-control" type="text" name="nome" th:value="${funcionario.nome}" readOnly="true">
-	</div>
-	<div class="col-md-3">
-	   <label for="matricula">Matricula: </label>
-	   <input class="form-control" type="text" name="matricula" th:value="${funcionario.matricula}" readOnly="true">
-	</div>
-	<div class="col-md-3">
-	   <label for="cargo">Cargo: </label>
-	   <input class="form-control" type="text" name="cargo" th:value="${funcionario.cargo}" readOnly="true"><br>
-	</div>
-	   <input type="submit" value="Deletar">
-
-  </div>
- </form>
+    <div class="col-md-3">
+      <label for="nome">Nome: </label>
+      <input class="form-control" type="text" name="nome" th:value="${funcionario.nome}" readOnly="true">
+    </div>
+    <div class="col-md-3">
+      <label for="matricula">Matricula: </label>
+      <input class="form-control" type="text" name="matricula" th:value="${funcionario.matricula}" readOnly="true">
+    </div>
+    <div class="col-md-3">
+      <label for="cargo">Cargo: </label>
+      <input class="form-control" type="text" name="cargo" th:value="${funcionario.cargo}" readOnly="true"><br>
+    </div>
+    <input type="hidden" name="id" th:value="${funcionario.id}">
+    </div><br>   
+    <div class="row">
+      <div class="col-md-7">
+          
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-success" value="Apagar">
+        <a href="read"><input class="btn btn-danger" type="button" value="Cancelar"></a>  
+      </div>
+    </div>
+</form>
 </div>
  </body>
 </html>

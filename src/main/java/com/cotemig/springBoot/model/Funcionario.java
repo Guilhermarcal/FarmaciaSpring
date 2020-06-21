@@ -2,6 +2,7 @@ package com.cotemig.springBoot.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,12 +20,29 @@ public class Funcionario {
 	private String nome;
 	
 	private String matricula;
+	
+	private String senha;
+	
+	private Boolean ativo;
 
 	private String cargo;
-	
-	@OneToMany
-    @JoinColumn(name = "funcionario_id") // Esta coluna está na tabela "venda".
+
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "funcionario_id", nullable = false, updatable = false) // Esta coluna está na tabela "venda".
 	private Set<Venda> vendas;
+	
+	public Funcionario(){
+		 
+	}
+ 
+	public Funcionario(Integer id, String nome, String matricula, String senha, boolean ativo) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.matricula = matricula;
+		this.senha = senha;
+		this.ativo = ativo;
+	}
 
 	public Integer getId() {
 		return id;
@@ -50,6 +68,22 @@ public class Funcionario {
 		this.matricula = matricula;
 	}
 
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+
 	public String getCargo() {
 		return cargo;
 	}
@@ -64,6 +98,6 @@ public class Funcionario {
 
 	public void setVendas(Set<Venda> vendas) {
 		this.vendas = vendas;
-	}
+	}	
 	
 }

@@ -10,17 +10,17 @@
    <input type="text" name="id" th:value="${venda.id}" readOnly="true"><br>
    <br>
    Funcionario:<br>
-   <select name="venda.funcionarios">
+   <select th:field="*{venda.funcionarios}">
        <option th:each="f : ${funcionarios}" th:value="${f.id}" th:text="${f.nome}" th:selected="${venda.funcionarios.id}"></option>
    </select>
    <br>
    Cliente:<br>
-   <select name="venda.clientes">
+   <select th:field="*{venda.clientes}">
        <option th:each="c : ${clientes}" th:value="${c.id}" th:text="${c.nome}" th:selected="${venda.clientes.id}"></option>
    </select>
    <br>
    Produto:<br>
-   <select name="venda.produtos">
+   <select th:field="*{venda.produtos}">
        <option th:each="p : ${produtos}" th:value="${p.id}" th:text="${p.nome}" th:selected="${venda.produtos.id}"></option>
    </select>
    <br>

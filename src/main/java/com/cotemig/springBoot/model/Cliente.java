@@ -2,6 +2,7 @@ package com.cotemig.springBoot.model;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,8 +25,8 @@ public class Cliente {
 	
 	private String telefone;
 	
-	@OneToMany
-    @JoinColumn(name = "cliente_id") // Esta coluna está na tabela "venda".
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id", nullable = false, updatable = false) // Esta coluna está na tabela "venda".
 	private Set<Venda> vendas;
 
 	public Integer getId() {
