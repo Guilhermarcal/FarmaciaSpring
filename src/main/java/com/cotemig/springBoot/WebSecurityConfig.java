@@ -26,10 +26,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
  		
 		http.authorizeRequests()
-        .antMatchers("/index", "/base/**", "/css/**", "/fonts/**", "/images/**", "/js/**").permitAll()
+		.antMatchers("/cliente/insert", "/funcionario/insert").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_CADASTROUSUARIO')")
+		.antMatchers("/cliente/delete", "/funcionario/delete", "/produto/delete").access("hasRole('ROLE_ADMIN')")
+        .antMatchers("/index", "/css/**", "/fonts/**", "/images/**", "/js/**").permitAll()
         .anyRequest().authenticated()
         .and()
-        .formLogin().loginPage("/").defaultSuccessUrl("/venda/read",true).permitAll()
+        .formLogin().loginPage("/").defaultSuccessUrl("/home",true).permitAll()
         .and()
         .logout().logoutSuccessUrl("/").logoutUrl("/logout").permitAll();
 

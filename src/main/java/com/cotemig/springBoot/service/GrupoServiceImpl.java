@@ -23,7 +23,6 @@ public class GrupoServiceImpl implements GrupoService {
 		/*CONSULTA TODOS OS GRUPOS*/
 		List<GrupoEntity> gruposEntity = this.grupoRepository.findAll();
  
- 
 	    gruposEntity.forEach(grupo ->{ 
 	    	grupos.add(new Grupo(grupo.getCodigo(), grupo.getDescricao())); 
 	    });

@@ -20,7 +20,7 @@ public class PermissaoEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id_permissao")	
-	private Long codigo;
+	private Integer codigo;
  
 	@Column(name="permissao")	
 	private String permissao;
@@ -31,11 +31,11 @@ public class PermissaoEntity implements Serializable {
 	@ManyToMany(mappedBy = "permissoes")
 	private List<GrupoEntity> grupos;
  
-	public Long getCodigo() {
+	public Integer getCodigo() {
 		return codigo;
 	}
  
-	public void setCodigo(Long codigo) {
+	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
 	}
  

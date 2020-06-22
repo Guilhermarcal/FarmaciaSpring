@@ -1,4 +1,6 @@
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="base/layout">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="@{~/base/layout}">
 <head>
    <title>Read</title>
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,6 +19,7 @@
    </style>
 </head>
 <body>
+<section layout:fragment="content">
 <div class="container"><br>
   <div class="container">
     <div class="row">
@@ -51,5 +54,6 @@
  		</tbody>
  	</table>
 </div>
+</section>
 </body>
 </html>

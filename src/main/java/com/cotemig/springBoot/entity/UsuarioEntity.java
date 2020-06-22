@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
  
  
-@Table(name="funcionario", schema="farmacia")
+@Table(name="usuario", schema="farmacia")
 @Entity
 public class UsuarioEntity implements Serializable {
  

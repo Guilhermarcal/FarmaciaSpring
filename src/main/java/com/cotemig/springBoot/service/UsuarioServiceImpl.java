@@ -59,26 +59,46 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
 	 * @return
 	 */
 	public List<GrantedAuthority> buscarPermissoesUsuario(UsuarioEntity usuarioEntity) {
+		
+		Integer idGrupo = grupoRepository.findByUsuarios(usuarioEntity.getId());
+		
+		GrupoEntity grupoUsuario = null;
+		
+		List<GrupoEntity> grupos = grupoRepository.findAll();
+		
+		for (GrupoEntity g: grupos) {
+			
+			if(g.getCodigo() == idGrupo) {
+				grupoUsuario = g;
+			}
+			
+		}
  
-		List<GrupoEntity> grupos = grupoRepository.findByUsuarios(usuarioEntity);
- 
-		return this.buscarPermissoesDosGrupos(grupos);
+		return this.buscarPermissoesDosGrupos(grupoUsuario);
 	}
  
 	/***
 	 * BUSCA AS PERMISSÕES DO GRUPO
 	 * */
-	public List<GrantedAuthority> buscarPermissoesDosGrupos(List<GrupoEntity> grupos) {
+	public List<GrantedAuthority> buscarPermissoesDosGrupos(GrupoEntity grupoUsuario) {
+		
 		List<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
- 
-		for (GrupoEntity grupo: grupos) {
- 
-			List<PermissaoEntity> lista = permissaoRepository.findByGrupos(grupo);
- 
-			for (PermissaoEntity permissao: lista) {
-				auths.add(new SimpleGrantedAuthority(permissao.getPermissao()));
+		
+		Integer idPerm = permissaoRepository.findByGrupos(grupoUsuario.getCodigo());
+		
+		List<PermissaoEntity> permissoes = permissaoRepository.findAll();
+ 		
+ 		PermissaoEntity permissao =  null;
+ 		
+		for (PermissaoEntity p : permissoes) {
+			
+			if(p.getCodigo() == idPerm) {
+				permissao = p;
 			}
+			
 		}
+ 
+		auths.add(new SimpleGrantedAuthority(permissao.getPermissao()));
  
 		return auths;
 	}

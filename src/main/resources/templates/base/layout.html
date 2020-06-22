@@ -5,10 +5,15 @@
  
     <title>Farmacia</title>
  
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/icomoon/style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/magnific-popup.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/jquery-ui.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/owl.carousel.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/owl.theme.default.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/aos.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
   
 </head>
 <body>
@@ -18,48 +23,37 @@
 <input type="hidden"	th:name="${_csrf.parameterName}"	th:value="${_csrf.token}"/>
 </form>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">FARMAMIG</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Funcionários
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" th:href="@{/funcionario/insert}">Adicionar novo</a>
-          <a class="dropdown-item" th:href="@{/funcionario/read}">Listar Todos</a>
+<div class="site-navbar py-2">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <div class="site-logo">
+          <a href="index.html" class="js-logo-clone">Farmamig</a>
         </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Clientes
+      </div>
+      <div class="main-nav d-none d-lg-block">
+        <nav class="site-navigation text-right text-md-center" role="navigation">
+          <ul class="site-menu js-clone-nav d-none d-lg-block">
+            <li><a th:href="@{/home}">Home</a></li>
+            <li><a th:href="@{/produto/read}">Produtos</a></li>                
+            <li><a th:href="@{/cliente/read}">Clientes</a></li>
+            <li><a th:href="@{/funcionario/read}">Funcionários</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="icons">            
+        <a href="cart.html" class="icons-btn d-inline-block bag">
+          <span class="icon-shopping-bag"></span>
+          <span class="number">0</span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" th:href="@{/cliente/insert}">Adicionar novo</a>
-          <a class="dropdown-item" th:href="@{/cliente/read}">Listar Todos</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Produtos
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" th:href="@{/produto/insert}">Adicionar novo</a>
-          <a class="dropdown-item" th:href="@{/produto/read}">Listar Todos</a>
-        </div>
-      </li>
-    </ul>
+        <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
+            class="icon-menu"></span></a>
+      </div>
+    </div>
   </div>
-</nav>
-<main class="mdl-layout__content mdl-color--blue-grey-100">
-  <div class="page-content">
-    <!-- CONTEUDO A SER SUBSTITUÍDO -->
-    <div layout:fragment="content"></div>
-  </div>
+</div>
+<main>
+  <div layout:fragment="content"></div>
 </main>
 </body>
 </html>

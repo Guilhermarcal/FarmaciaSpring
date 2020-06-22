@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+    layout:decorator="@{~/base/layout}">
+
+<head>
+  <title>Farmamig</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+<section layout:fragment="content">
+  <div class="site-wrap">
+
+
+    <div class="site-navbar py-2">    
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a th:href="@{/home}">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Produtos</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div th:each="produto : ${produtos}">
+	          <div class="col-md-6 text-center item" style="max-width: 100%">
+	          	<span style="font-size: 200px" class="icon-cart-plus"></span>
+	            <h3 class="text-dark"><span th:text="${produto.nome}"></span></h3>
+	            <p class="price">R$<span th:text="${produto.preco}"></span></p>
+	          </div>
+	      </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-12 text-center">
+            <div class="site-block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+
+</html>

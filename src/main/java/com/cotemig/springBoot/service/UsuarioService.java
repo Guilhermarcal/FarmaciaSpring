@@ -12,6 +12,6 @@ public interface UsuarioService {
 	
 	UserDetails loadUserByUsername(String login);
 	List<GrantedAuthority> buscarPermissoesUsuario(UsuarioEntity usuarioEntity);
-	List<GrantedAuthority> buscarPermissoesDosGrupos(List<GrupoEntity> grupos);
+	List<GrantedAuthority> buscarPermissoesDosGrupos(GrupoEntity grupoUsuario);
 	
 }
