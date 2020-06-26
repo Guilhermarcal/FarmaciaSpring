@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+		<title>Farmamig</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}"/>
+	    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+   <body>       
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/images/Medicamentos.jpg');">
+			<div class="wrap-login100">
+					<span class="login100-form-logo">
+					<i class="zmdi zmdi-hospital"></i>
+					</span>
+	
+					<span class="login100-form-title p-b-34 p-t-27">
+					Farmamig
+					</span>
+					<!-- /login?error=true -->
+					<th:block th:if="${#session != null && #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}">
+					<div th:if= "${#request.getParameter('error') == 'true'}"
+					style="color: red; margin: 10px 0px;">
+					Login Failed!!!<br /> Reason :
+					<span th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}"></span>
+					</div>
+					</th:block>
+	
+					<form method="POST"
+						th:action="@{/j_spring_security_check}">
+						<div class="wrap-input100 validate-input" data-validate = "Usuário">
+						<input class="input100" type="text" name="userName" placeholder="Usuário" autocomplete="off">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+						</div>
+						<div class="wrap-input100 validate-input" data-validate="Senha">
+						<input class="input100" type="password" name="password" placeholder="Senha">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+						</div>	
+						<div class="container-login100-form-btn">
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+						<div class="text-center p-t-90">
+							<button type="button" class="txt1 btn btn-default" onclick="clicouSenha();">Esqueci minha senha</button>
+						</div>
+					</form>
+				<span class="error-message" th:utext="${error}"></span>
+			</div>
+		</div>
+	</div> 	
+	<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+	
+	<script type="text/javascript"> 
+	function clicouSenha(){
+		alert('Favor procurar o gerente caso para alterar a senha.');
+	}
+	</script>
+   </body>
+</html>

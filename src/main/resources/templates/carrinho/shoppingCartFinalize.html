@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="@{~/base/layout}">
+   <head>
+      <meta charset="UTF-8">
+      <title>Finalizado</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+	<section layout:fragment="content">
+		<div class="container">
+	      <div class="page-title">Finalizado</div>
+	      <div class="container">
+	         <h3>Obrigado pelo seu pedido! </h3>
+	         O número do seu pedido é: <span th:utext="${lastOrderedCart.orderNum}"></span><br><br>
+	         <a class="btn btn-success" th:href="@{|/admin/orderList|}">Ver lista de Pedidos</a>
+	      </div>
+	   </div>
+   </section>
+   </body>
+</html>

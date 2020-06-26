@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="@{~/base/layout}">
+
+<head>
+  <title>Farmamig</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+<section layout:fragment="content">
+  <div class="site-wrap">
+
+    <div class="site-blocks-cover" style="background-image: url(/images/hero_1.jpg);">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+            <div class="site-block-cover-content text-center">
+              <h2 class="sub-title">Em cada medicamento que alivia as dores da humanidade está a ciência do farmacêutico</h2>
+              <h1>Bem vindo a Farmamig</h1>
+              <p>
+                <a th:href="@{/productList}" class="btn btn-primary px-5 py-3">Comprar agora</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row align-items-stretch section-overlap">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="banner-wrap bg-primary h-100">
+              <a href="#" class="h-100">
+                <h5>Lembre-se</h5>
+                <p>
+                  Pergunte como está o cliente.
+                  <strong>Boas vendas.</strong>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="banner-wrap h-100">
+              <a href="#" class="h-100">
+                <h5>Avise-o <br> Em compras assima de R$125,00</h5>
+                <p>
+                  Ganhe um brinde
+                  <strong>Boas vendas.</strong>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="banner-wrap bg-warning h-100">
+              <a href="#" class="h-100">
+                <h5>Cartão fidelidade</h5>
+                <p>
+                  Em compras com cartão fidelidade o cliente ganha mais brindes.
+                  <strong>Boas vendas.</strong>
+                </p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</section>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="@{~/base/layout}">
+   <head>
+      <meta charset="UTF-8">
+      <title>Enter Customer Information</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+      <section layout:fragment="content">
+      <div class="container">
+	      <div class="page-title">Digite as informações do cliente</div><br>
+	       
+	      <form method="POST" th:object="${customerForm}" th:action="@{/shoppingCartCustomer}">
+	          
+	         <table>
+	            <tr>
+	               <td>Name *</td>
+	               <td><input th:field="*{name}" /></td>
+	               <td>
+	                  <span class="error-message"
+	                     th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+	               </td>
+	            </tr>
+	            <tr>
+	               <td>Email *</td>
+	               <td><input th:field="*{email}" /></td>
+	               <td>
+	                  <span class="error-message"
+	                     th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+	               </td>
+	            </tr>
+	            <tr>
+	               <td>Telefone *</td>
+	               <td><input th:field="*{phone}" /></td>
+	               <td>
+	                  <span class="error-message"
+	                     th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
+	               </td>
+	            </tr>
+	            <tr>
+	               <td>Endereço *</td>
+	               <td><input th:field="*{address}" /></td>
+	               <td>
+	                  <span class="error-message"
+	                     th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+	               </td>
+	            </tr><br>
+	            <tr>
+	               <td>&nbsp;</td>
+	               <td><input class="btn btn-success" type="submit" value="Submit" /> <input class="btn btn-danger" type="reset"
+	                  value="Reset" /></td>
+	            </tr>
+	         </table>
+	          
+	      </form>
+      </div>
+      </section>
+       
+   </body>
+</html>

@@ -17,34 +17,33 @@
   
 </head>
 <body>
- 
-<!-- FORM QUE VAI SER USADO PARA REALIZAR O LOGOUT -->
-<form th:action="@{/logout}" id="form_logou"	th:method="post">
-<input type="hidden"	th:name="${_csrf.parameterName}"	th:value="${_csrf.token}"/>
-</form>
-
 <div class="site-navbar py-2">
   <div class="container">
     <div class="d-flex align-items-center justify-content-between">
       <div class="logo">
         <div class="site-logo">
-          <a href="index.html" class="js-logo-clone">Farmamig</a>
+          <a th:href="@{/admin/home}" class="js-logo-clone">Farmamig</a>
         </div>
       </div>
       <div class="main-nav d-none d-lg-block">
         <nav class="site-navigation text-right text-md-center" role="navigation">
           <ul class="site-menu js-clone-nav d-none d-lg-block">
-            <li><a th:href="@{/home}">Home</a></li>
-            <li><a th:href="@{/produto/read}">Produtos</a></li>                
-            <li><a th:href="@{/cliente/read}">Clientes</a></li>
-            <li><a th:href="@{/funcionario/read}">Funcionários</a></li>
+            <li><a th:href="@{/admin/home}">Home</a></li>
+            <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
+		           <li>
+		             <a th:href="@{/admin/product}">Novo Produto</a>
+		           </li>
+		    </th:block>       
+            <li><a th:href="@{/admin/orderList}">Lista de Pedidos</a></li>
+            <li><a th:href="@{/productList}">Realizar venda</a></li>
           </ul>
         </nav>
       </div>
+      <li style="list-style: none" class="icon-user-circle" ><span style="margin-left: 10px" th:utext="${#request.userPrincipal.name}"></span></li>
+      <a class="btn btn-danger" th:href="@{/admin/logout}">Logout</a>
       <div class="icons">            
-        <a href="cart.html" class="icons-btn d-inline-block bag">
+        <a th:href="@{|/buyProduct|}" class="icons-btn d-inline-block bag">
           <span class="icon-shopping-bag"></span>
-          <span class="number">0</span>
         </a>
         <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
             class="icon-menu"></span></a>

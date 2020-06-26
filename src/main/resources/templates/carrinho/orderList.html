@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="@{~/base/layout}">
+   <head>
+      <meta charset="UTF-8">
+      <title>Lista de pedidos</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+   <section layout:fragment="content">
+   <div class="container">
+      <div class="page-title">Lista de pedidos</div>
+      <table border="1" style="width:100%; text-align: center;" >
+         <tr>
+            <th>Número</th>
+            <th>Data</th>
+            <th>Nome cliente</th>
+            <th>Endereço</th>
+            <th>Email</th>
+            <th>Valor total</th>
+            <th>Detalhes</th>
+         </tr>
+         <tr th:each="orderInfo : ${paginationResult.list}">
+            <td th:utext="${orderInfo.orderNum}"></td>
+            <td th:utext="${#dates.format(orderInfo.orderDate,'dd-MM-yyyy HH:mm')}"></td>
+            <td th:utext="${orderInfo.customerName}"></td>
+            <td th:utext="${orderInfo.customerAddress}"></td>
+            <td th:utext="${orderInfo.customerEmail}"></td>
+            <td style="color:red;" th:utext="${#numbers.formatDecimal(orderInfo.amount,3,2,'COMMA')}">
+            </td>
+            <td><a class="btn btn-warning" th:href="@{|/admin/order?orderId=${orderInfo.id}|}">View</a></td>
+         </tr>
+      </table>
+      <div class="page-navigator" th:if="${paginationResult.totalPages > 1}" >
+         <th:block th:each="page: ${paginationResult.navigationPages}">
+            <a th:if="${page != -1}" class="nav-item"
+               th:href="@{|/admin/orderList?page=${page}|}" th:utext="${page}"></a>
+                
+            <span th:if="${page == -1}" class="nav-item"> ... </span>
+         </th:block>
+      </div>
+   </div>
+   </section>
+   </body>
+</html>

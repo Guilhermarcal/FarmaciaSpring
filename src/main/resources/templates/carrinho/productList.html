@@ -4,19 +4,30 @@
 	  layout:decorator="@{~/base/layout}">
    <head>
       <meta charset="UTF-8">
-      <title>Funcionario</title>
+      <title>Product List</title>
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>       
    <section layout:fragment="content">
    <div class="container">
-      <div class="page-title">Lista de funcionarios</div><br>
+      <div class="page-title">Lista de produtos</div><br>
 		<div class="row">
 		  <div class="product-preview-container col-md-4" th:each="prodInfo : ${paginationProducts.list}">
 		  	<div width="100%">
 		     <ul style="list-style: none;">
+		        <li><img width="120px" height="80px" class="product-image" th:src="@{|/productImage?code=${prodInfo.code}|}" /></li>
 		        <li>Nome: <span th:utext="${prodInfo.name}"></span></li>
-		        <li>Cargo: <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
+		        <li>Preço: R$ <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
+		        <li>
+		           <a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Comprar agora</a>
+		        </li>
+		        <!-- For Manager edit Product -->
+		        <th:block sec:authorize="hasAuthority('ROLE_MANAGER')">
+		           <li>
+		             <a style="color:red;"
+		                th:href="@{|/admin/product?code=${prodInfo.code}|}">Editar Produto</a>
+		           </li>
+		        </th:block>
 		     </ul>
 		    </div>
 		  </div>

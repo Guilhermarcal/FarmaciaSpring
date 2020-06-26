@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="@{~/base/layout}">
+   <head>
+      <meta charset="UTF-8">
+      <title>Account Info</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+   </head>
+   <body>
+
+     <section layout:fragment="content"> 
+      <div class="page-title">Account Info</div>
+      <div class="account-container">
+         <ul>
+            <li>User Name: <span th:utext="${#request.userPrincipal.name}"></span></li>
+            <li>
+               Role:
+               <ul>
+                  <li th:each="auth : ${userDetails.authorities}" th:utext="${auth.authority}"></li>
+               </ul>
+            </li>
+         </ul>
+      </dv>
+ 
+      </section>      
+   </body>
+</html>
